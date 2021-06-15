@@ -57,6 +57,7 @@ const MusicPlayList = (props) => {
   const createNewPlaylist = () => {
     debugger;
     if(playListArr.length> 0){
+      // eslint-disable-next-line array-callback-return
       playListArr.map((obj)=>{
        if(obj['playlist_name']!==playListName){
          let newPlayListObj = {};
