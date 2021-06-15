@@ -1,0 +1,39 @@
+.song-wrapper-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-left: 15%;
+  width: 80%;
+  border-radius: 35px;
+  gap: 60px;
+
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.song-wrapper{
+    background-color: rgb(7, 13, 23);
+    height:600px;
+    overflow-y: auto;
+}
+.input-field{
+    background-color: white;
+    border-radius: 10px;
+    height: 49px;
+    width: 213px;
+    border: 4px solid #399268;
+}
+.thumbnail-img{
+  padding: 16px 0 11px 0;
+    height: 74px;
+    width: 90px;
+    border-radius: 32px;
+}
+.title-text{
+  font-family: monospace;
+  font-size: 15px;
+  margin-top: 40px;
+  font-weight: bold;
+}

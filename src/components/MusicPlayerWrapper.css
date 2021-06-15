@@ -1,0 +1,10 @@
+.music-wrapper{font-family: monospace;
+    text-align: center;
+    background-color: rgb(7, 13, 23);
+    color: white;
+    font-size: 23px;
+    padding: 28px;
+    display: flex;
+    justify-content:center;
+    gap: 30px;
+}
