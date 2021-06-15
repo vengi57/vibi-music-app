@@ -55,14 +55,28 @@ const MusicPlayList = (props) => {
   };
 
   const createNewPlaylist = () => {
-    let newPlayListObj = {};
-    newPlayListObj["playlist_name"] = playListName;
-    setPlayListArr([...playListArr, newPlayListObj]);
-    // localStorage.setItem(
-    //   "playListData",
-    //   playListArr
-    // )
-    handleCloseTextFiled(false);
+    debugger;
+    if(playListArr.length> 0){
+      playListArr.map((obj)=>{
+       if(obj['playlist_name']!==playListName){
+         let newPlayListObj = {};
+         newPlayListObj["playlist_name"] = playListName;
+         setPlayListArr([...playListArr, newPlayListObj]);
+         handleCloseTextFiled(false);
+       }else{
+         swal(
+           "Error !",
+           "Playlist Name already exists",
+           "error"
+         );
+       }
+     })
+    }else{
+      let newPlayListObj = {};
+      newPlayListObj["playlist_name"] = playListName;
+      setPlayListArr([...playListArr, newPlayListObj]);
+      handleCloseTextFiled(false);
+    }
   };
 
   const addSongsToPlaylist = (playlistName) => {
@@ -87,7 +101,6 @@ const MusicPlayList = (props) => {
 
   const ViewSongsonPlayList = (selectedPlayList) => {
     setOpenPlayList(true);
-    // setFilterPlayList(selectedPlayList);
 
     setFilteredPlayListData(
       _.filter(playListArrWithSongs, {
@@ -103,14 +116,7 @@ const MusicPlayList = (props) => {
   };
 
   const searchInsidePlayList = (value) => {
-    debugger;
     setSongInPlayList(value);
-    console.log(
-      _.filter(filteredPlayListData, {
-        title: value,
-      })
-    );
-    debugger;
     let data = _.filter(filteredPlayListData, { title: value });
     setSearchDataInsidePlayList(data);
   };
@@ -120,7 +126,9 @@ const MusicPlayList = (props) => {
     setSearchDataInsidePlayList([])
   }
 
-  console.log("serachDataInsidePlayList", searchDataInsidePlayList);
+  const setNewPlaylistName=(value)=>{
+    setPlayListName(value)
+  }
   return (
     <div className="playlist-wrapper">
       <br />
@@ -169,7 +177,7 @@ const MusicPlayList = (props) => {
             id="outlined-basic"
             label="Enter Playlist Name"
             variant="outlined"
-            onChange={(e) => setPlayListName(e.target.value)}
+            onChange={(e) => setNewPlaylistName(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
@@ -276,8 +284,7 @@ const MusicPlayList = (props) => {
               />
             </DialogContentText>
           </div>
-          {console.log(filteredPlayListData)}
-          {console.log(songInPlayList)}
+
 
           <DialogContentText id="alert-dialog-description">
             <div>
