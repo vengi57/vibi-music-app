@@ -31,7 +31,7 @@ const MusicPlayList = (props) => {
   const [playListArrWithSongs, setPlayListArrWithSongs] = useState([]);
   const [filteredPlayListData, setFilteredPlayListData] = useState([]);
   const [searchDataInsidePlayList, setSearchDataInsidePlayList] = useState([]);
-  const [songInPlayList, setSongInPlayList] = useState("");
+
 
   const useStyles = makeStyles({
     table: {
@@ -116,7 +116,6 @@ const MusicPlayList = (props) => {
   };
 
   const searchInsidePlayList = (value) => {
-    setSongInPlayList(value);
     let data = _.filter(filteredPlayListData, { title: value });
     setSearchDataInsidePlayList(data);
   };
